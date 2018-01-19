@@ -33,7 +33,7 @@
                         "address": "/Keyboard_Velocity_Curve",
                         "preArgs": [],
                         "target": [
-                            "k-board:0"
+                            "k-board:osc"
                         ],
                         "values": {
                             "Linear": "Linear",
@@ -78,7 +78,7 @@
                         "meterAddress": "",
                         "preArgs": [],
                         "target": [
-                            "k-board:0"
+                            "k-board:osc"
                         ],
                         "address": "/Keyboard_Velocity_Gain"
                     }
