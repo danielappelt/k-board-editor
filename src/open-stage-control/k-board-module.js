@@ -409,11 +409,11 @@
         "Controller_Key_9_Toggle_On_Off": 0,
         "Controller_Key_9_Toggle_Return_Value": 0,
         "Controller_Key_9_Toggle_Value": 127,
-        "Globals_Gain": 100,
+        "Globals_Gain": { value: 100, offset: 75 },
         "Globals_LED_Refresh_Style": { value: "Normal", offset: 144 },
-        "Globals_Off_Thresh": 1,
+        "Globals_Off_Thresh": { value: 1, offset: 78 },
         "Globals_On_Thresh": { value: 15, offset: 81 },
-        "Globals_Tilt_Sensitivity": { value: 50, offset: 84, length: 2 },
+	"Globals_Tilt_Sensitivity": { value: 50, offset: 84, length: 2 }, // TODO: length 2 or 1?
         "Keyboard": 1,
         "Keyboard_CC_00_Control_Number": { value: 1, offset: 96 },
         "Keyboard_CC_00_Curve": "Linear",
@@ -457,7 +457,7 @@
         "Keyboard_Global_CC_Active": 1,
         "Keyboard_Global_Channel_Pressure_Active": 1,
         "Keyboard_Global_Channel_Rotation_Active": 0,
-        "Keyboard_Global_Channel_Rotation_Offset": 0,
+        "Keyboard_Global_Channel_Rotation_Offset": { value: 0, offset: 90 },
         "Keyboard_Global_Key_Selection_Criteria": 0, // TODO: lower bound of pitch bend range via pad
         "Keyboard_Global_LED_Mode": 1,
         "Keyboard_Global_LED_Remote_Channel": 0,
@@ -472,7 +472,7 @@
         "Keyboard_Global_Program_Change_C": -1,
         "Keyboard_Global_Program_Change_D": -1,
         "Keyboard_Global_Tilt_Active": 1,
-        "Keyboard_Global_Transpose": 0,
+        "Keyboard_Global_Transpose": { value: 0, offset: 144 },
         "Keyboard_Global_USB_1_Channel": 0, // TODO: MIDI channel?!
         "Keyboard_Global_USB_2_Channel": 127, // TODO: upper bound of pitch bend range via pad
         "Keyboard_Global_Velocity_Active": 1,
