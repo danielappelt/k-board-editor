@@ -456,8 +456,8 @@
         "Keyboard_Channel_Pressure_Source": "None",
         "Keyboard_Global_CC_Active": 1,
         "Keyboard_Global_Channel_Pressure_Active": 1,
-        "Keyboard_Global_Channel_Rotation_Active": 0,
-        "Keyboard_Global_Channel_Rotation_Offset": { value: 0, offset: 90 },
+        "Keyboard_Global_Channel_Rotation_Active": { value: 0, offset: 90 },
+        "Keyboard_Global_Channel_Rotation_Offset": 0,
         "Keyboard_Global_Key_Selection_Criteria": 0, // TODO: lower bound of pitch bend range via pad
         "Keyboard_Global_LED_Mode": 1,
         "Keyboard_Global_LED_Remote_Channel": 0,
@@ -472,7 +472,7 @@
         "Keyboard_Global_Program_Change_C": -1,
         "Keyboard_Global_Program_Change_D": -1,
         "Keyboard_Global_Tilt_Active": 1,
-        "Keyboard_Global_Transpose": { value: 0, offset: 144 },
+        "Keyboard_Global_Transpose": { value: 0, offset: 144 }, // TODO: offset should be != Globals_LED_Refresh_Style
         "Keyboard_Global_USB_1_Channel": 0, // TODO: MIDI channel?!
         "Keyboard_Global_USB_2_Channel": 127, // TODO: upper bound of pitch bend range via pad
         "Keyboard_Global_Velocity_Active": 1,
