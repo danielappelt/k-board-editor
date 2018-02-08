@@ -455,24 +455,24 @@
         "Keyboard_Channel_Pressure_Offset": 0,
         "Keyboard_Channel_Pressure_Source": "None",
         "Keyboard_Global_CC_Active": 1,
-        "Keyboard_Global_Channel_Pressure_Active": 1,
+        "Keyboard_Global_Channel_Pressure_Active": { value: 1, offset: 120 },
         "Keyboard_Global_Channel_Rotation_Active": { value: 0, offset: 90 },
         "Keyboard_Global_Channel_Rotation_Offset": 0,
         "Keyboard_Global_Key_Selection_Criteria": 0, // TODO: lower bound of pitch bend range via pad
         "Keyboard_Global_LED_Mode": 1,
         "Keyboard_Global_LED_Remote_Channel": 0,
-        "Keyboard_Global_Mode": "Off",
-        "Keyboard_Global_Pitch_Bend_Active": 1,
+        "Keyboard_Global_Mode": { value: "Off", offset: 87 },
+        "Keyboard_Global_Pitch_Bend_Active": { value: 1, offset: 108 },
         "Keyboard_Global_Pitch_Bend_Range": 12,
         "Keyboard_Global_Poly_Aftertouch_Active": 1,
         "Keyboard_Global_Polyphony_Number": 10,
-        "Keyboard_Global_Pressure_Active": 1,
+        "Keyboard_Global_Pressure_Active": { value: 1, offset: 105 },
         "Keyboard_Global_Program_Change_A": -1, //{ value: -1, offset:  },
         "Keyboard_Global_Program_Change_B": -1, //{ value: -1, offset:  },
         "Keyboard_Global_Program_Change_C": -1,
         "Keyboard_Global_Program_Change_D": -1,
-        "Keyboard_Global_Tilt_Active": 1,
-        "Keyboard_Global_Transpose": { value: 0, offset: 144 }, // TODO: offset should be != Globals_LED_Refresh_Style
+        "Keyboard_Global_Tilt_Active": { value: 1, offset: 111 },
+        "Keyboard_Global_Transpose": { value: 0, offset: 147 },
         "Keyboard_Global_USB_1_Channel": 0, // TODO: MIDI channel?!
         "Keyboard_Global_USB_2_Channel": 127, // TODO: upper bound of pitch bend range via pad
         "Keyboard_Global_Velocity_Active": 1,
@@ -564,7 +564,12 @@
             // LED Refresh Mode
             'Normal' : 0,
             'Control Only' : 2,
-            'All Off' : 3
+            'All Off' : 3,
+
+            // Keyboard_Global_Mode
+            'Off': 0,
+            'On': 1,
+            'Legato', 2
         };
 
         console.log(value + ' -> ' + typeof value);
