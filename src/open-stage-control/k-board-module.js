@@ -413,7 +413,7 @@
         "Globals_LED_Refresh_Style": { value: "Normal", offset: 144 },
         "Globals_Off_Thresh": { value: 1, offset: 78 },
         "Globals_On_Thresh": { value: 15, offset: 81 },
-	"Globals_Tilt_Sensitivity": { value: 50, offset: 84, length: 2 }, // TODO: length 2 or 1?
+        "Globals_Tilt_Sensitivity": { value: 50, offset: 84, length: 2 }, // TODO: length 2 or 1?
         "Keyboard": 1,
         "Keyboard_CC_00_Control_Number": { value: 1, offset: 96 },
         "Keyboard_CC_00_Curve": "Linear",
@@ -537,9 +537,9 @@
         inject : function(value, offset) {
             this.value = this.value.substring(0, offset) + value + this.value.substring(offset + value.length);
         },
-	toString : function() {
-	    return this.value;
-	}
+        toString : function() {
+            return this.value;
+        }
     }, getChecksumValue = function(value) {
         var  mapped = {
             // Sources
@@ -572,7 +572,7 @@
             'Legato', 2
         };
 
-        console.log(value + ' -> ' + typeof value);
+        //console.log(value + ' -> ' + typeof value);
         switch(typeof value) {
         case 'number':
             return value;
@@ -586,18 +586,18 @@
             return 0;
         }
     }, intToBytes = function(value, noOfBytes, highBitShift) {
-	// Convert value into noOfBytes MIDI bytes. Given a length of 2 bytes, the
-	// lower 7bit of an 8bit value will go into the first byte, and the most-
-	// significant bit will go into the second byte (with the left-most bit
-	// being 0 in each byte). For example, 200 (11001000) will be converted
-	// to 48 40 (01001000 01000000).
-	// Please note that there is no standard sysex format. This specific
-	// conversion may only be relevant for certain manufacturers, for example
-	// Keith McMillen.
+        // Convert value into noOfBytes MIDI bytes. Given a length of 2 bytes, the
+        // lower 7bit of an 8bit value will go into the first byte, and the most-
+        // significant bit will go into the second byte (with the left-most bit
+        // being 0 in each byte). For example, 200 (11001000) will be converted
+        // to 48 40 (01001000 01000000).
+        // Please note that there is no standard sysex format. This specific
+        // conversion may only be relevant for certain manufacturers, for example
+        // Keith McMillen.
         var currValue = Number(value),
             result = [], i, len, v;
 
-	console.log(currValue);
+        //console.log(currValue);
         for(i = 0, len = noOfBytes || 1; i < len; i++) {
             if(i % 2 === 0) {
                 v = currValue & 0x7f;
@@ -616,13 +616,12 @@
     return {
         init: function(){
             // this will be executed once when the osc server starts
-	    console.log('init');
         },
         oscInFilter: function(data){
             // Filter incomming osc messages
             var {address, args, host, port} = data
 
-	    console.log(address);
+            console.log(address);
             // address = string
             // args = array of {value, type} objects
             // host = string
@@ -638,9 +637,9 @@
                 prop = address.substr(1),
                 checksum = 0, value;
 
-	    console.log(host + ' -> ' + prop);
+            console.log(host + ':' + port + ' -> ' + prop);
             // Handle osc messages directed to target 'k-board'. Try to map prop
-	    // into k-board preset.
+            // into k-board preset.
             if(host === 'k-board' && preset[prop] && args[0]) {
                 // Only accept value changes that we know how to handle
                 if(preset[prop].offset) {
@@ -648,16 +647,16 @@
                 }
 
                 // Update sysex byte string from preset values and calculate
-		// checksum.
+                // checksum.
                 for(prop in preset) {
                     if(preset.hasOwnProperty(prop)) {
                         prop = preset[prop];
-			value = getChecksumValue(prop.value || prop);
+                        value = getChecksumValue(prop.value || prop);
                         checksum += value;
 
                         // Map preset properties into byte string
                         if(prop.offset) {
-			    console.log(prop.value + ' -> ' + value);
+                            //console.log(prop.value + ' -> ' + value);
                             bytes.inject(intToBytes(value, prop.length), prop.offset);
                         }
                     }
@@ -667,13 +666,14 @@
                 checksum += 59;
 
                 // Create byte string from preset values + checksum
+                checksum = 0; // TODO: test whether the checksum is actually needed
                 bytes.inject(intToBytes(checksum, 2, 3).split(' ').join(' 00 00 '), 1668);
                 console.log('checksum: ' + intToBytes(checksum, 2, 3));
 
                 host = 'midi';
                 address = '/sysex';
                 args[0] = { type: 'string', value: bytes.toString() };
-		// console.log('bytes: ' + bytes);
+                console.log('bytes: ' + bytes);
             }
 
             // return data if you want the message to be and sent
