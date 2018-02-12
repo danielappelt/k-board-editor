@@ -49,24 +49,24 @@
         "CV_Out_Gate_MIDI_Input_Device": "All",
         "CV_Pitch_Scaling_Scheme": "1 Volt/Octave",
         "Keyboard": 1,
-        "Keyboard_Global_Key_Selection_Criteria": 0, // TODO: lower bound of pitch bend range via pad?
         "Keyboard_Global_LED_Mode": 1,
-        "Keyboard_Global_Program_Change_A": -1, //{ value: -1, offset:  },
-        "Keyboard_Global_Program_Change_B": -1, //{ value: -1, offset:  },
+        "Keyboard_Global_Program_Change_A": -1,
+        "Keyboard_Global_Program_Change_B": -1,
         "Keyboard_Global_Program_Change_C": -1,
         "Keyboard_Global_Program_Change_D": -1,
-        "Keyboard_Global_USB_2_Channel": 127, // TODO: upper bound of pitch bend range via pad?
-        "Globals_Gain": { value: 100, offset: 75 }, // TODO: length 2 or 1?
+        "Globals_Gain": { value: 100, offset: 75 },
         "Globals_Off_Thresh": { value: 1, offset: 78 },
         "Globals_On_Thresh": { value: 15, offset: 81 },
-        "Globals_Tilt_Sensitivity": { value: 50, offset: 84 }, // TODO: length 2 or 1?
+        "Globals_Tilt_Sensitivity": { value: 50, offset: 84 },
         "Keyboard_Global_Mode": { value: "Off", offset: 87 },
         "Keyboard_Global_Channel_Rotation_Active": { value: 0, offset: 90 }, // 00 at 93
         "Keyboard_Global_USB_1_Channel": { value: 0, offset: 96 }, // MIDI channel
+        "Keyboard_Global_USB_2_Channel": { value: 127, offset: 99 }, // upper bound of pitch bend range via pad?
+        "Keyboard_Global_Key_Selection_Criteria": { value: 0, offset: 102 }, // lower bound of pitch bend range via pad?
         "Keyboard_Global_Velocity_Active": { value: 1, offset: 105 },
-        "Keyboard_Global_Pressure_Active": { value: 1, offset: 105 }, // TODO!
-        "Keyboard_Global_Pitch_Bend_Active": { value: 1, offset: 108 },
-        "Keyboard_Global_Tilt_Active": { value: 1, offset: 111 }, // 00 at 117
+        "Keyboard_Global_Pressure_Active": { value: 1, offset: 108 },
+        "Keyboard_Global_Pitch_Bend_Active": { value: 1, offset: 111 },
+        "Keyboard_Global_Tilt_Active": { value: 1, offset: 114 }, // 00 at 117
         "Keyboard_Global_Channel_Pressure_Active": { value: 1, offset: 120 },
         "Keyboard_Global_Poly_Aftertouch_Active": { value: 1, offset: 123 },
         "Keyboard_Global_CC_Active": { value: 1, offset: 126 },
@@ -78,7 +78,7 @@
         "Keyboard_Global_Transpose": { value: 0, offset: 147 },
         "Keyboard_CC_00_Control_Number": { value: 1, offset: 150 },
         "Keyboard_CC_00_Curve": { value: "Linear", offset: 153 },
-        "Keyboard_CC_00_Gain": { value: 100, offset: 159, length: 2 }, // TODO: length 2?
+        "Keyboard_CC_00_Gain": { value: 100, offset: 156, length: 2 },
         "Keyboard_CC_00_Max": { value: 127, offset: 162 }, // 00 at 165
         "Keyboard_CC_00_Min": { value: 0, offset: 168 },
         "Keyboard_CC_00_Offset": { value: 0, offset: 171 },
@@ -86,7 +86,7 @@
         "Keyboard_CC_00_Source": { value: "Pressure", offset: 177 },
         "Keyboard_CC_01_Control_Number": { value: -1, offset: 180 }, // value -1 => offset 180->7f, offset 189->10 => maybe sets device to "Off"
         "Keyboard_CC_01_Curve": { value: "Linear", offset: 183 },
-        "Keyboard_CC_01_Gain": { value: 100, offset: 192, length: 2 }, // 00 at 189
+        "Keyboard_CC_01_Gain": { value: 100, offset: 186, length: 2 }, // TODO: 00 at 189 -> in between
         "Keyboard_CC_01_Max": { value: 127, offset: 195 },
         "Keyboard_CC_01_Min": { value: 0, offset: 198 },
         "Keyboard_CC_01_Offset": { value: 0, offset: 201 },
@@ -94,7 +94,7 @@
         "Keyboard_CC_01_Source": { value: "Tilt", offset: 207 },
         "Keyboard_CC_02_Control_Number": { value: 2, offset: 210 }, // 00 at 213
         "Keyboard_CC_02_Curve": { value: "Linear", offset: 216 },
-        "Keyboard_CC_02_Gain": { value: 100, offset: 222, length: 2 },
+        "Keyboard_CC_02_Gain": { value: 100, offset: 219, length: 2 },
         "Keyboard_CC_02_Max": { value: 127, offset: 225 },
         "Keyboard_CC_02_Min": { value: 0, offset: 228 },
         "Keyboard_CC_02_Offset": { value: 0, offset: 231 },
@@ -110,28 +110,28 @@
         // "Keyboard_CC_03_MIDI_Output_Device": "USB 1",
         // "Keyboard_CC_03_Source": { value: "None", offset: 264 },
         "Keyboard_Channel_Pressure_Curve": { value: "Linear", offset: 243 },
-        "Keyboard_Channel_Pressure_Gain": { value: 100, offset: 249, length: 2 },
+        "Keyboard_Channel_Pressure_Gain": { value: 100, offset: 246, length: 2 },
         "Keyboard_Channel_Pressure_Max": { value: 127, offset: 252 },
         "Keyboard_Channel_Pressure_Min": { value: 0, offset: 255 },
         "Keyboard_Channel_Pressure_Offset": { value: 0, offset: 258 }, // 00 at 261
         "Keyboard_Channel_Pressure_MIDI_Output_Device": "USB 1",
         "Keyboard_Channel_Pressure_Source": { value: "None", offset: 267 },
         "Keyboard_Pitch_Bend_Curve": { value: "Linear", offset: 270 },
-        "Keyboard_Pitch_Bend_Gain": { value: 100, offset: 276, length: 2 },
+        "Keyboard_Pitch_Bend_Gain": { value: 100, offset: 273, length: 2 },
         "Keyboard_Pitch_Bend_Max": { value: 69, offset: 279 }, // Max/Min provide the supported range -> might be used for uneven scaling!
         "Keyboard_Pitch_Bend_Min": { value: 58, offset: 282 }, // 00 at 285
         "Keyboard_Pitch_Bend_Offset": { value: 0, offset: 288 },
         "Keyboard_Pitch_Bend_MIDI_Output_Device": "USB 1",
         "Keyboard_Pitch_Bend_Source": { value: "Tilt", offset: 294 },
         "Keyboard_Poly_Aftertouch_Curve": { value: "Linear", offset: 297 },
-        "Keyboard_Poly_Aftertouch_Gain": { value: 100, offset: 303, length: 2 },
+        "Keyboard_Poly_Aftertouch_Gain": { value: 100, offset: 300, length: 2 },
         "Keyboard_Poly_Aftertouch_Max": { value: 127, offset: 306 }, // 00 at 309
         "Keyboard_Poly_Aftertouch_Min": { value: 0, offset: 312 },
         "Keyboard_Poly_Aftertouch_Offset": { value: 0, offset: 315 },
         "Keyboard_Poly_Aftertouch_MIDI_Output_Device": "USB 1",
         "Keyboard_Poly_Aftertouch_Source": { value: "None", offset: 321 },
         "Keyboard_Velocity_Curve": { value: "Logarithmic", offset: 324 },
-        "Keyboard_Velocity_Gain": { value: 60, offset: 330, length: 2 }, // 00 at 333
+        "Keyboard_Velocity_Gain": { value: 60, offset: 327, length: 2 }, // 00 at 333
         "Keyboard_Velocity_Max": { value: 127, offset: 336 },
         "Keyboard_Velocity_Min": { value: 0, offset: 339 },
         "Keyboard_Velocity_Offset": { value: 0, offset: 342 },
@@ -568,9 +568,9 @@
             'All Off' : 3,
 
             // Keyboard_Global_Mode
-            'Off': 0,
-            'On': 1,
-            'Legato', 2
+            'Off' : 0,
+            'On' : 1,
+            'Legato' : 2
         };
 
         //console.log(value + ' -> ' + typeof value);
