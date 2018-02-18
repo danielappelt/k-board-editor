@@ -49,17 +49,17 @@
         "CV_Out_Gate_MIDI_Input_Device": "All",
         "CV_Pitch_Scaling_Scheme": "1 Volt/Octave",
         "Keyboard": 1,
-        "Keyboard_Global_LED_Mode": 1,
         "Keyboard_Global_Program_Change_A": -1,
         "Keyboard_Global_Program_Change_B": -1,
         "Keyboard_Global_Program_Change_C": -1,
         "Keyboard_Global_Program_Change_D": -1,
-        "Globals_Gain": { value: 100, offset: 75 },
+        "Globals_Gain": { value: 100, offset: 75 }, // values > 127, 03 at 93 -> 00000011
         "Globals_Off_Thresh": { value: 1, offset: 78 },
         "Globals_On_Thresh": { value: 15, offset: 81 },
         "Globals_Tilt_Sensitivity": { value: 50, offset: 84 },
         "Keyboard_Global_Mode": { value: "Off", offset: 87 },
         "Keyboard_Global_Channel_Rotation_Active": { value: 0, offset: 90 }, // 00 at 93
+        "Keyboard_Global_LED_Mode": { value: 1, offset: 93 }, // 0 = LED remote
         "Keyboard_Global_USB_1_Channel": { value: 0, offset: 96 }, // MIDI channel
         "Keyboard_Global_USB_2_Channel": { value: 127, offset: 99 }, // upper bound of pitch bend range via pad?
         "Keyboard_Global_Key_Selection_Criteria": { value: 0, offset: 102 }, // lower bound of pitch bend range via pad?
@@ -120,7 +120,7 @@
         "Keyboard_Pitch_Bend_Gain": { value: 100, offset: 273, length: 2 },
         "Keyboard_Pitch_Bend_Max": { value: 69, offset: 279 }, // Max/Min provide the supported range -> might be used for uneven scaling!
         "Keyboard_Pitch_Bend_Min": { value: 58, offset: 282 }, // 00 at 285
-        "Keyboard_Pitch_Bend_Offset": { value: 0, offset: 288 },
+        "Keyboard_Pitch_Bend_Offset": { value: 0, offset: 288 }, // < 0.. 7f-value+1 (-128=>01,-1=>7f) and lowest bit set (00000001) at 309
         "Keyboard_Pitch_Bend_MIDI_Output_Device": "USB 1",
         "Keyboard_Pitch_Bend_Source": { value: "Tilt", offset: 294 },
         "Keyboard_Poly_Aftertouch_Curve": { value: "Linear", offset: 297 },
@@ -131,7 +131,8 @@
         "Keyboard_Poly_Aftertouch_MIDI_Output_Device": "USB 1",
         "Keyboard_Poly_Aftertouch_Source": { value: "None", offset: 321 },
         "Keyboard_Velocity_Curve": { value: "Logarithmic", offset: 324 },
-        "Keyboard_Velocity_Gain": { value: 60, offset: 327, length: 2 }, // 00 at 333
+	// TODO: 7f 01 20(0010 0000) at 327 -> -255, 7f 1c 60(0110 0000) at 327 -> -100, 00 64 00 -> 100, 00 7f 40(0100 0000) -> 254
+        "Keyboard_Velocity_Gain": { value: 60, offset: 327, length: 3 }, // 00 at 333?!
         "Keyboard_Velocity_Max": { value: 127, offset: 336 },
         "Keyboard_Velocity_Min": { value: 0, offset: 339 },
         "Keyboard_Velocity_Offset": { value: 0, offset: 342 },
@@ -213,7 +214,7 @@
         "Controller_Key_5_Note_Number": { value: 53, offset: 582 },
         "Controller_Key_5_Pressure_Control_Number": { value: 70, offset: 585 },
         "Controller_Key_5_Tilt_Control_Number": { value: 71, offset: 588 },
-        "Controller_Key_5_Channel": { value; 0, offset: 591 },
+        "Controller_Key_5_Channel": { value: 0, offset: 591 },
         "Controller_Key_5_Note_Velocity": { value: 127, offset: 594 }, // 00 at 597
         "Controller_Key_5_Pressure_Return_Value": { value: 0, offset: 600 },
         "Controller_Key_5_Tilt_Return_Value": { value: 63, offset: 603 },
