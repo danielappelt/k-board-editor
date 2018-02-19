@@ -131,7 +131,7 @@
         "Keyboard_Poly_Aftertouch_MIDI_Output_Device": "USB 1",
         "Keyboard_Poly_Aftertouch_Source": { value: "None", offset: 321 },
         "Keyboard_Velocity_Curve": { value: "Logarithmic", offset: 324 },
-	// TODO: 7f 01 20(0010 0000) at 327 -> -255, 7f 1c 60(0110 0000) at 327 -> -100, 00 64 00 -> 100, 00 7f 40(0100 0000) -> 254
+        // TODO: 7f 01 20(0010 0000) at 327 -> -255, 7f 1c 60(0110 0000) at 327 -> -100, 00 64 00 -> 100, 00 7f 40(0100 0000) -> 254
         "Keyboard_Velocity_Gain": { value: 60, offset: 327, length: 3 }, // 00 at 333?!
         "Keyboard_Velocity_Max": { value: 127, offset: 336 },
         "Keyboard_Velocity_Min": { value: 0, offset: 339 },
@@ -604,6 +604,11 @@
             if(i % 2 === 0) {
                 v = currValue & 0x7f;
             } else {
+                // TODO: highBitshift is the distance between this byte's position p
+                // and the next byte at 21 + x*24 => every 8th byte is used to encode
+                // the most-significant bits of the last 7 bytes, respectively.
+                // value at position p => x = 7 - (p / 3) mod 8 => high bit is in byte at p + x*3
+                // highBitShift = x
                 v = (currValue & 0x80) >> (highBitShift || 1);
                 currValue >>= 8;
             }
