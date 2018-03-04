@@ -53,7 +53,7 @@
         "Keyboard_Global_Program_Change_B": -1,
         "Keyboard_Global_Program_Change_C": -1,
         "Keyboard_Global_Program_Change_D": -1,
-        "Globals_Gain": { value: 100, offset: 75 }, // values > 127, 03 at 93 -> 00000011
+        "Globals_Gain": { value: 100, offset: 75, min: 0, max: 255 }, // values > 127, 03 at 93 -> 00000011
         "Globals_Off_Thresh": { value: 1, offset: 78 },
         "Globals_On_Thresh": { value: 15, offset: 81 },
         "Globals_Tilt_Sensitivity": { value: 50, offset: 84 },
@@ -78,64 +78,55 @@
         "Keyboard_Global_Transpose": { value: 0, offset: 147 },
         "Keyboard_CC_00_Control_Number": { value: 1, offset: 150 },
         "Keyboard_CC_00_Curve": { value: "Linear", offset: 153 },
-        "Keyboard_CC_00_Gain": { value: 100, offset: 156, length: 2 },
+        "Keyboard_CC_00_Gain": { value: 100, offset: 156, min: -255, max: 255 },
         "Keyboard_CC_00_Max": { value: 127, offset: 162 }, // 00 at 165
         "Keyboard_CC_00_Min": { value: 0, offset: 168 },
-        "Keyboard_CC_00_Offset": { value: 0, offset: 171 },
+        "Keyboard_CC_00_Offset": { value: 0, offset: 171, min: -127, max: 127 },
         "Keyboard_CC_00_MIDI_Output_Device": "USB 1",
         "Keyboard_CC_00_Source": { value: "Pressure", offset: 177 },
         "Keyboard_CC_01_Control_Number": { value: -1, offset: 180 }, // value -1 => offset 180->7f, offset 189->10 => maybe sets device to "Off"
         "Keyboard_CC_01_Curve": { value: "Linear", offset: 183 },
-        "Keyboard_CC_01_Gain": { value: 100, offset: 186, length: 2 }, // TODO: 00 at 189 -> in between
+        "Keyboard_CC_01_Gain": { value: 100, offset: 186, min: -255, max: 255 }, // TODO: 00 at 189 -> in between
         "Keyboard_CC_01_Max": { value: 127, offset: 195 },
         "Keyboard_CC_01_Min": { value: 0, offset: 198 },
-        "Keyboard_CC_01_Offset": { value: 0, offset: 201 },
+        "Keyboard_CC_01_Offset": { value: 0, offset: 201, min: -127, max: 127 },
         "Keyboard_CC_01_MIDI_Output_Device": "USB 1",
         "Keyboard_CC_01_Source": { value: "Tilt", offset: 207 },
         "Keyboard_CC_02_Control_Number": { value: 2, offset: 210 }, // 00 at 213
         "Keyboard_CC_02_Curve": { value: "Linear", offset: 216 },
-        "Keyboard_CC_02_Gain": { value: 100, offset: 219, length: 2 },
+        "Keyboard_CC_02_Gain": { value: 100, offset: 219, min: -255, max: 255 },
         "Keyboard_CC_02_Max": { value: 127, offset: 225 },
         "Keyboard_CC_02_Min": { value: 0, offset: 228 },
-        "Keyboard_CC_02_Offset": { value: 0, offset: 231 },
+        "Keyboard_CC_02_Offset": { value: 0, offset: 231, min: -127, max: 127 },
         "Keyboard_CC_02_MIDI_Output_Device": "USB 1", // 00 at 237
         "Keyboard_CC_02_Source": { value: "None", offset: 240 },
-        // TODO: Maybe the editor and manual are right about the non-availability of a CC_03 mapping!?
-        // "Keyboard_CC_03_Control_Number": { value: 1, offset: 243 },
-        // "Keyboard_CC_03_Curve": { value: "Linear", offset: 246 },
-        // "Keyboard_CC_03_Gain": { value: 100, offset: 249, length: 2 }, // TODO: this should be 249 + 252?!
-        // "Keyboard_CC_03_Max": { value: 127, offset: 252 },
-        // "Keyboard_CC_03_Min": { value: 0, offset: 255 },
-        // "Keyboard_CC_03_Offset": { value: 0, offset: 258 }, // 00 at 261
-        // "Keyboard_CC_03_MIDI_Output_Device": "USB 1",
-        // "Keyboard_CC_03_Source": { value: "None", offset: 264 },
         "Keyboard_Channel_Pressure_Curve": { value: "Linear", offset: 243 },
-        "Keyboard_Channel_Pressure_Gain": { value: 100, offset: 246, length: 2 },
+        "Keyboard_Channel_Pressure_Gain": { value: 100, offset: 246, min: -255, max: 255 },
         "Keyboard_Channel_Pressure_Max": { value: 127, offset: 252 },
         "Keyboard_Channel_Pressure_Min": { value: 0, offset: 255 },
-        "Keyboard_Channel_Pressure_Offset": { value: 0, offset: 258 }, // 00 at 261
+        "Keyboard_Channel_Pressure_Offset": { value: 0, offset: 258, min: -127, max: 127 }, // 00 at 261
         "Keyboard_Channel_Pressure_MIDI_Output_Device": "USB 1",
         "Keyboard_Channel_Pressure_Source": { value: "None", offset: 267 },
         "Keyboard_Pitch_Bend_Curve": { value: "Linear", offset: 270 },
-        "Keyboard_Pitch_Bend_Gain": { value: 100, offset: 273, length: 2 },
+        "Keyboard_Pitch_Bend_Gain": { value: 100, offset: 273, min: -255, max: 255 },
         "Keyboard_Pitch_Bend_Max": { value: 69, offset: 279 }, // Max/Min provide the supported range -> might be used for uneven scaling!
         "Keyboard_Pitch_Bend_Min": { value: 58, offset: 282 }, // 00 at 285
-        "Keyboard_Pitch_Bend_Offset": { value: 0, offset: 288 }, // < 0.. 7f-value+1 (-128=>01,-1=>7f) and lowest bit set (00000001) at 309
+        "Keyboard_Pitch_Bend_Offset": { value: 0, offset: 288, min: -127, max: 127 }, // < 0.. 7f-value+1 (-128=>01,-1=>7f) and lowest bit set (00000001) at 309
         "Keyboard_Pitch_Bend_MIDI_Output_Device": "USB 1",
         "Keyboard_Pitch_Bend_Source": { value: "Tilt", offset: 294 },
         "Keyboard_Poly_Aftertouch_Curve": { value: "Linear", offset: 297 },
-        "Keyboard_Poly_Aftertouch_Gain": { value: 100, offset: 300, length: 2 },
+        "Keyboard_Poly_Aftertouch_Gain": { value: 100, offset: 300, min: -255, max: 255 },
         "Keyboard_Poly_Aftertouch_Max": { value: 127, offset: 306 }, // 00 at 309
         "Keyboard_Poly_Aftertouch_Min": { value: 0, offset: 312 },
-        "Keyboard_Poly_Aftertouch_Offset": { value: 0, offset: 315 },
+        "Keyboard_Poly_Aftertouch_Offset": { value: 0, offset: 315, min: -127, max: 127 },
         "Keyboard_Poly_Aftertouch_MIDI_Output_Device": "USB 1",
         "Keyboard_Poly_Aftertouch_Source": { value: "None", offset: 321 },
         "Keyboard_Velocity_Curve": { value: "Logarithmic", offset: 324 },
-        // TODO: 7f 01 20(0010 0000) at 327 -> -255, 7f 1c 60(0110 0000) at 327 -> -100, 00 64 00 -> 100, 00 7f 40(0100 0000) -> 254
-        "Keyboard_Velocity_Gain": { value: 60, offset: 327, length: 3 }, // 00 at 333?!
+        // 7f 01 20(0010 0000) at 327 -> -255, 7f 1c 60(0110 0000) at 327 -> -100, 00 64 00 -> 100, 00 7f 40(0100 0000) -> 254
+        "Keyboard_Velocity_Gain": { value: 60, offset: 327, min: -255, max: 255 }, // 00 at 333
         "Keyboard_Velocity_Max": { value: 127, offset: 336 },
         "Keyboard_Velocity_Min": { value: 0, offset: 339 },
-        "Keyboard_Velocity_Offset": { value: 0, offset: 342 },
+        "Keyboard_Velocity_Offset": { value: 0, offset: 342, min: -127, max: 127 },
         "Keyboard_Velocity_MIDI_Output_Device": "USB 1",
         "Controller_Global_MIDI_Output_Device": "USB 1 + Expander",
         "Controller_Key_0_Mode_Pressure_Note": "Normal",
@@ -294,11 +285,11 @@
         "Controller_Key_10_Toggle_On_Off": { value: 0, offset: 840 },
         "Controller_Key_11_Mode_Pressure_Note": "Normal",
         "Controller_Key_11_Controller_Layer_Enable_Disable": { value: 0, offset: 843 },
-        "Controller_Key_11_Keyboard_Layer_Enable_Disable": { value: 1, offset: 847 },
-        "Controller_Key_11_Note_Number": { value: 59, offset: 850 },
-        "Controller_Key_11_Pressure_Control_Number": { value: 82, offset: 853 },
-        "Controller_Key_11_Tilt_Control_Number": { value: 83, offset: 857 },
-        "Controller_Key_11_Channel": { value: 0, offset: 860 }, // 00 at 863
+        "Controller_Key_11_Keyboard_Layer_Enable_Disable": { value: 1, offset: 846 },
+        "Controller_Key_11_Note_Number": { value: 59, offset: 849 },
+        "Controller_Key_11_Pressure_Control_Number": { value: 82, offset: 852 },
+        "Controller_Key_11_Tilt_Control_Number": { value: 83, offset: 855 },
+        "Controller_Key_11_Channel": { value: 0, offset: 858 }, // 00 at 861
         "Controller_Key_11_Note_Velocity": { value: 127, offset: 864 },
         "Controller_Key_11_Pressure_Return_Value": { value: 0, offset: 867 },
         "Controller_Key_11_Tilt_Return_Value": { value: 63, offset: 870 },
@@ -537,7 +528,40 @@
             '64 7f 00 00 06 03 06 20 01 00 00 00 5c 00 00 10 ' +
             'f7',
         inject : function(value, offset) {
-            this.value = this.value.substring(0, offset) + value + this.value.substring(offset + value.length);
+            var hex = ('0' + (value & 0x7f).toString(16)).substr(-2);
+            this.value = this.value.substring(0, offset) + hex + this.value.substring(offset + hex.length);
+        },
+        update : function(value, prop) {
+            // Set given int value for given sysex property. The lower 7bit of an
+            // 8bit value will go into one byte, and the most-significant bit will
+            // go into a second byte (the left-most bit being 0 in each byte).
+            // Every 8th byte in the sysex is used to encode the last 7 bytes' MSBs.
+            // Please note that there is no standard sysex format. This specific
+            // conversion may only be relevant for Keith McMillen devices.
+            var bytePos = prop.offset / 3, isMsb, msbByte;
+
+            if(prop.min < -127) {
+                // Reduce the problem to two update operations
+                // 7f 01 20(0010 0000) at 327 -> -255, 7f 1c 60(0110 0000) at 327 -> -100, 00 64 00 -> 100, 00 7f 40(0100 0000) -> 254
+                this.update(value < 0 ? 255 : 0, { offset: bytePos * 3 });
+                // Update bytePos
+                bytePos = bytePos + 1;
+                bytePos += bytePos % 8 === 7 ? 1 : 0;
+            }
+
+            if(bytePos % 8 !== 7) {
+                // Negative values need to be transformed into positive range (0...254)
+                this.inject(value < 0 ? value - prop.min : value, bytePos * 3);
+            }
+
+            // Update the MSB byte depending on the most-significant bit of the given
+            // value. Please note that sometimes a real (on/off) value may be encoded
+            // in the MSB byte (second part of the following assignment).
+            isMsb = value & 0x80 || (bytePos % 8 === 7 && value !== 0);
+            msbByte = parseInt(this.value.substr(3 * (bytePos + 7 - bytePos % 8), 2), 16);
+            this.inject(isMsb ? Math.pow(2, bytePos % 8) | msbByte :
+                        (0x7f - Math.pow(2, bytePos % 8)) & msbByte,
+                        3 * (bytePos + 7 - bytePos % 8));
         },
         toString : function() {
             return this.value;
@@ -587,37 +611,6 @@
             // TODO: There are still some things we have not mapped yet.
             return 0;
         }
-    }, intToBytes = function(value, noOfBytes, highBitShift) {
-        // Convert value into noOfBytes MIDI bytes. Given a length of 2 bytes, the
-        // lower 7bit of an 8bit value will go into the first byte, and the most-
-        // significant bit will go into the second byte (with the left-most bit
-        // being 0 in each byte). For example, 200 (11001000) will be converted
-        // to 48 40 (01001000 01000000).
-        // Please note that there is no standard sysex format. This specific
-        // conversion may only be relevant for certain manufacturers, for example
-        // Keith McMillen.
-        var currValue = Number(value),
-            result = [], i, len, v;
-
-        //console.log(currValue);
-        for(i = 0, len = noOfBytes || 1; i < len; i++) {
-            if(i % 2 === 0) {
-                v = currValue & 0x7f;
-            } else {
-                // TODO: highBitshift is the distance between this byte's position p
-                // and the next byte at 21 + x*24 => every 8th byte is used to encode
-                // the most-significant bits of the last 7 bytes, respectively.
-                // value at position p => x = 7 - (p / 3) mod 8 => high bit is in byte at p + x*3
-                // highBitShift = x
-                v = (currValue & 0x80) >> (highBitShift || 1);
-                currValue >>= 8;
-            }
-
-            // Convert to 2-digit hex, adding a leading '0' if necessary.
-            result.push(('0' + v.toString(16)).substr(-2));
-        }
-
-        return result.join(' ');
     };
 
     return {
@@ -664,7 +657,7 @@
                         // Map preset properties into byte string
                         if(prop.offset) {
                             //console.log(prop.value + ' -> ' + value);
-                            bytes.inject(intToBytes(value, prop.length), prop.offset);
+                            bytes.update(value, prop);
                         }
                     }
                 }
@@ -674,8 +667,7 @@
 
                 // Create byte string from preset values + checksum
                 checksum = 0; // TODO: test whether the checksum is actually needed
-                bytes.inject(intToBytes(checksum, 2, 3).split(' ').join(' 00 00 '), 1668);
-                console.log('checksum: ' + intToBytes(checksum, 2, 3));
+                bytes.update(checksum, { offset: 1668 });
 
                 host = 'midi';
                 address = '/sysex';
