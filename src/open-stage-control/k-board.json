@@ -19,7 +19,7 @@
                 "widgets": [
                     {
                         "type": "dropdown",
-                        "top": 10,
+                        "top": 110,
                         "left": 10,
                         "id": "dropdown_1",
                         "linkId": "",
@@ -28,7 +28,7 @@
                         "label": "Velocity Curve",
                         "color": "auto",
                         "css": "",
-                        "value": "",
+                        "value": "Logarithmic",
                         "precision": 0,
                         "address": "/Keyboard_Velocity_Curve",
                         "preArgs": [],
@@ -46,16 +46,16 @@
                     },
                     {
                         "type": "fader",
-                        "top": 10,
+                        "top": 110,
                         "left": 150,
                         "id": "fader_1",
                         "linkId": "",
-                        "width": 90,
-                        "height": 230,
-                        "label": "Sensitivity",
+                        "width": 220,
+                        "height": 80,
+                        "label": "Velocity Sensitivity",
                         "color": "auto",
                         "css": "",
-                        "horizontal": false,
+                        "horizontal": true,
                         "alignRight": false,
                         "pips": true,
                         "input": true,
@@ -72,7 +72,7 @@
                         "logScale": false,
                         "unit": "",
                         "origin": "auto",
-                        "value": "",
+                        "value": 100,
                         "precision": 0,
                         "touchAddress": "",
                         "meterAddress": "",
@@ -81,6 +81,130 @@
                             "k-board:osc"
                         ],
                         "address": "/Keyboard_Velocity_Gain"
+                    },
+                    {
+                        "type": "fader",
+                        "top": 10,
+                        "left": 10,
+                        "id": "fader_2",
+                        "width": 220,
+                        "height": 80,
+                        "label": "Gain",
+                        "color": "auto",
+                        "css": "",
+                        "horizontal": true,
+                        "alignRight": false,
+                        "pips": true,
+                        "input": true,
+                        "meter": false,
+                        "compact": false,
+                        "dashed": false,
+                        "snap": false,
+                        "spring": false,
+                        "doubleTap": false,
+                        "range": {
+                            "min": 0,
+                            "max": 255
+                        },
+                        "logScale": false,
+                        "unit": "",
+                        "origin": "auto",
+                        "value": 127,
+                        "precision": 0,
+                        "touchAddress": "",
+                        "meterAddress": "",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "address": "/Globals_Gain",
+                        "linkId": ""
+                    },
+                    {
+                        "type": "fader",
+                        "top": 10,
+                        "left": 250,
+                        "id": "fader_3",
+                        "width": 220,
+                        "height": 80,
+                        "label": "Tilt Sensitivity",
+                        "color": "auto",
+                        "css": "",
+                        "horizontal": true,
+                        "alignRight": false,
+                        "pips": true,
+                        "input": true,
+                        "meter": false,
+                        "compact": false,
+                        "dashed": false,
+                        "snap": false,
+                        "spring": false,
+                        "doubleTap": false,
+                        "range": {
+                            "min": 0,
+                            "max": 127
+                        },
+                        "logScale": false,
+                        "unit": "",
+                        "origin": "auto",
+                        "value": 50,
+                        "precision": 0,
+                        "touchAddress": "",
+                        "meterAddress": "",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "address": "/Globals_Tilt_Sensitivity",
+                        "linkId": ""
+                    },
+                    {
+                        "type": "dropdown",
+                        "top": 10,
+                        "left": 490,
+                        "id": "dropdown_2",
+                        "width": 120,
+                        "height": "auto",
+                        "label": "Toggle Mode",
+                        "color": "auto",
+                        "css": "",
+                        "value": "Off",
+                        "precision": 0,
+                        "address": "/Keyboard_Global_Mode",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "values": {
+                            "Off": "Off",
+                            "On": "On",
+                            "Legato": "Legato"
+                        },
+                        "linkId": ""
+                    },
+                    {
+                        "type": "dropdown",
+                        "top": 10,
+                        "left": 630,
+                        "id": "dropdown_3",
+                        "width": 120,
+                        "height": "auto",
+                        "label": "Refresh Style",
+                        "color": "auto",
+                        "css": "",
+                        "value": "Normal",
+                        "precision": 0,
+                        "address": "/Globals_LED_Refresh_Style",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "values": {
+                            "Normal": "Normal",
+                            "Control Only": "Control Only",
+                            "All Off": "All Off"
+                        },
+                        "linkId": ""
                     }
                 ],
                 "tabs": [],
@@ -95,6 +219,7 @@
         "preArgs": [],
         "target": [],
         "variables": {},
+        "noSync": false,
         "id": "root",
         "scroll": true,
         "label": false
