@@ -76,7 +76,7 @@
         "Keyboard_Global_Polyphony_Number": { value: 10, offset: 138 }, // 00 at 141
         "Globals_LED_Refresh_Style": { value: "Normal", offset: 144 },
         "Keyboard_Global_Transpose": { value: 0, offset: 147 },
-        "Keyboard_CC_00_Control_Number": { value: 1, offset: 150 },
+        "Keyboard_CC_00_Control_Number": { value: 1, offset: 150, min: 0 },
         "Keyboard_CC_00_Curve": { value: "Linear", offset: 153 },
         "Keyboard_CC_00_Gain": { value: 100, offset: 156, min: -255, max: 255 },
         "Keyboard_CC_00_Max": { value: 127, offset: 162 }, // 00 at 165
@@ -84,15 +84,15 @@
         "Keyboard_CC_00_Offset": { value: 0, offset: 171, min: -127, max: 127 },
         "Keyboard_CC_00_MIDI_Output_Device": "USB 1",
         "Keyboard_CC_00_Source": { value: "Pressure", offset: 177 },
-        "Keyboard_CC_01_Control_Number": { value: -1, offset: 180 }, // value -1 => offset 180->7f, offset 189->10 => maybe sets device to "Off"
+        "Keyboard_CC_01_Control_Number": { value: -1, offset: 180, min: 0 }, // value -1 => offset 180->7f, offset 189->10 => maybe sets device to "Off"
         "Keyboard_CC_01_Curve": { value: "Linear", offset: 183 },
         "Keyboard_CC_01_Gain": { value: 100, offset: 186, min: -255, max: 255 }, // TODO: 00 at 189 -> in between
         "Keyboard_CC_01_Max": { value: 127, offset: 195 },
         "Keyboard_CC_01_Min": { value: 0, offset: 198 },
         "Keyboard_CC_01_Offset": { value: 0, offset: 201, min: -127, max: 127 },
         "Keyboard_CC_01_MIDI_Output_Device": "USB 1",
-        "Keyboard_CC_01_Source": { value: "Tilt", offset: 207 },
-        "Keyboard_CC_02_Control_Number": { value: 2, offset: 210 }, // 00 at 213
+        "Keyboard_CC_01_Source": { value: "None", offset: 207 },
+        "Keyboard_CC_02_Control_Number": { value: 2, offset: 210, min: 0 }, // 00 at 213
         "Keyboard_CC_02_Curve": { value: "Linear", offset: 216 },
         "Keyboard_CC_02_Gain": { value: 100, offset: 219, min: -255, max: 255 },
         "Keyboard_CC_02_Max": { value: 127, offset: 225 },
@@ -128,7 +128,7 @@
         "Keyboard_Velocity_Min": { value: 0, offset: 339 },
         "Keyboard_Velocity_Offset": { value: 0, offset: 342, min: -127, max: 127 },
         "Keyboard_Velocity_MIDI_Output_Device": "USB 1",
-        "Controller_Global_MIDI_Output_Device": "USB 1 + Expander",
+        "Controller_Global_MIDI_Output_Device": "USB 1 + Expander", //{ value: 1, offset: 348 },
         "Controller_Key_0_Mode_Pressure_Note": "Normal",
         "Controller_Key_0_Controller_Layer_Enable_Disable": { value: 0, offset: 351 },
         "Controller_Key_0_Keyboard_Layer_Enable_Disable": { value: 1, offset: 354 }, // 00 at 357, every 8 bytes
@@ -333,8 +333,8 @@
         "Controller_Key_14_Tilt_Control_Number": { value: 89, offset: 990 },
         "Controller_Key_14_Channel": { value: 0, offset: 993 },
         "Controller_Key_14_Note_Velocity": { value: 127, offset: 996 },
-        "Controller_Key_14_Tilt_Return_Value": { value: 63, offset: 999 },
-        "Controller_Key_14_Pressure_Return_Value": { value: 0, offset: 1002 }, // 00 at 1005
+        "Controller_Key_14_Pressure_Return_Value": { value: 0, offset: 999 },
+        "Controller_Key_14_Tilt_Return_Value": { value: 63, offset: 1002 }, // 00 at 1005
         "Controller_Key_14_Toggle_Control_Number": { value: 38, offset: 1008 },
         "Controller_Key_14_Toggle_Value": { value: 127, offset: 1011 },
         "Controller_Key_14_Toggle_Return_Value": { value: 0, offset: 1014 },
@@ -570,8 +570,8 @@
         var  mapped = {
             // Sources
             'None' : 0,
-            'Pressure' : 1, // 5
-            'Tilt' : 2, // 6
+            'Pressure' : 5, // 1
+            'Tilt' : 6, // 2
 
             // Output
             'USB 1' : 1,
