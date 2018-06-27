@@ -59,10 +59,10 @@
         "Globals_Tilt_Sensitivity": { value: 50, offset: 84 },
         "Keyboard_Global_Mode": { value: "Off", offset: 87 },
         "Keyboard_Global_Channel_Rotation_Active": { value: 0, offset: 90 }, // 00 at 93
-        "Keyboard_Global_LED_Mode": { value: 1, offset: 93 }, // 0 = LED remote
         "Keyboard_Global_USB_1_Channel": { value: 0, offset: 96 }, // MIDI channel
         "Keyboard_Global_USB_2_Channel": { value: 127, offset: 99 }, // upper bound of pitch bend range via pad?
         "Keyboard_Global_Key_Selection_Criteria": { value: 0, offset: 102 }, // lower bound of pitch bend range via pad?
+//        "Keyboard_Global_Pitch_Bend_Range": { value: 12, offset:  },
         "Keyboard_Global_Velocity_Active": { value: 1, offset: 105 },
         "Keyboard_Global_Pressure_Active": { value: 1, offset: 108 },
         "Keyboard_Global_Pitch_Bend_Active": { value: 1, offset: 111 },
@@ -71,7 +71,7 @@
         "Keyboard_Global_Poly_Aftertouch_Active": { value: 1, offset: 123 },
         "Keyboard_Global_CC_Active": { value: 1, offset: 126 },
         "Keyboard_Global_Channel_Rotation_Offset": { value: 0, offset: 129 },
-//        "Keyboard_Global_Pitch_Bend_Range": { value: 12, offset:  },
+        "Keyboard_Global_LED_Mode": { value: 1, offset: 132 }, // LEDs 0 = remote, 1 = local
         "Keyboard_Global_LED_Remote_Channel": { value: 0, offset: 135 },
         "Keyboard_Global_Polyphony_Number": { value: 10, offset: 138 }, // 00 at 141
         "Globals_LED_Refresh_Style": { value: "Normal", offset: 144 },
@@ -128,7 +128,7 @@
         "Keyboard_Velocity_Min": { value: 0, offset: 339 },
         "Keyboard_Velocity_Offset": { value: 0, offset: 342, min: -127, max: 127 },
         "Keyboard_Velocity_MIDI_Output_Device": "USB 1",
-        "Controller_Global_MIDI_Output_Device": "USB 1 + Expander", //{ value: 1, offset: 348 },
+        "Controller_Global_MIDI_Output_Device": { value: "USB 1 + Expander", offset: 348 },
         "Controller_Key_0_Mode_Pressure_Note": "Normal",
         "Controller_Key_0_Controller_Layer_Enable_Disable": { value: 0, offset: 351 },
         "Controller_Key_0_Keyboard_Layer_Enable_Disable": { value: 1, offset: 354 }, // 00 at 357, every 8 bytes
@@ -574,7 +574,9 @@
             'Tilt' : 6, // 2
 
             // Output
-            'USB 1' : 1,
+            'USB 1' : 0,
+            'Expander' : 1,
+            'USB 1 + Expander': 2,
 
             // Curve
             'Linear' : 0,
@@ -587,7 +589,7 @@
             // // Mode_Pressure_Note
             // 'Normal' : 1
 
-            // LED Refresh Mode
+            // LED Refresh Style
             'Normal' : 0,
             'Control Only' : 2,
             'All Off' : 3,
