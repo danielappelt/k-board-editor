@@ -42,7 +42,9 @@
                             "Cosine": "Cosine",
                             "Exponential": "Exponential",
                             "Invert": "Invert"
-                        }
+                        },
+                        "default": "",
+                        "bypass": false
                     },
                     {
                         "type": "fader",
@@ -51,7 +53,7 @@
                         "id": "fader_1",
                         "linkId": "",
                         "width": 220,
-                        "height": 80,
+                        "height": 60,
                         "label": "Velocity Sensitivity",
                         "color": "auto",
                         "css": "",
@@ -60,9 +62,9 @@
                         "pips": true,
                         "input": true,
                         "meter": false,
-                        "compact": false,
+                        "compact": true,
                         "dashed": false,
-                        "snap": false,
+                        "snap": true,
                         "spring": false,
                         "doubleTap": false,
                         "range": {
@@ -80,7 +82,9 @@
                         "target": [
                             "k-board:osc"
                         ],
-                        "address": "/Keyboard_Velocity_Gain"
+                        "address": "/Keyboard_Velocity_Gain",
+                        "default": "",
+                        "bypass": false
                     },
                     {
                         "type": "fader",
@@ -88,8 +92,8 @@
                         "left": 10,
                         "id": "fader_2",
                         "width": 220,
-                        "height": 80,
-                        "label": "Gain",
+                        "height": 60,
+                        "label": "Sensitivity",
                         "color": "auto",
                         "css": "",
                         "horizontal": true,
@@ -97,9 +101,9 @@
                         "pips": true,
                         "input": true,
                         "meter": false,
-                        "compact": false,
+                        "compact": true,
                         "dashed": false,
-                        "snap": false,
+                        "snap": true,
                         "spring": false,
                         "doubleTap": false,
                         "range": {
@@ -118,7 +122,9 @@
                             "k-board:osc"
                         ],
                         "address": "/Globals_Gain",
-                        "linkId": ""
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
                     },
                     {
                         "type": "fader",
@@ -126,7 +132,7 @@
                         "left": 250,
                         "id": "fader_3",
                         "width": 220,
-                        "height": 80,
+                        "height": 60,
                         "label": "Tilt Sensitivity",
                         "color": "auto",
                         "css": "",
@@ -135,9 +141,9 @@
                         "pips": true,
                         "input": true,
                         "meter": false,
-                        "compact": false,
+                        "compact": true,
                         "dashed": false,
-                        "snap": false,
+                        "snap": true,
                         "spring": false,
                         "doubleTap": false,
                         "range": {
@@ -156,7 +162,9 @@
                             "k-board:osc"
                         ],
                         "address": "/Globals_Tilt_Sensitivity",
-                        "linkId": ""
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
                     },
                     {
                         "type": "dropdown",
@@ -180,7 +188,9 @@
                             "On": "On",
                             "Legato": "Legato"
                         },
-                        "linkId": ""
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
                     },
                     {
                         "type": "dropdown",
@@ -204,11 +214,188 @@
                             "Control Only": "Control Only",
                             "All Off": "All Off"
                         },
-                        "linkId": ""
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
+                    },
+                    {
+                        "type": "dropdown",
+                        "top": 180,
+                        "left": 10,
+                        "id": "dropdown_4",
+                        "width": 120,
+                        "height": "auto",
+                        "label": "Tilt Curve",
+                        "color": "auto",
+                        "css": "",
+                        "value": "Linear",
+                        "precision": 0,
+                        "address": "/Keyboard_Pitch_Bend_Curve",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "values": {
+                            "Linear": "Linear",
+                            "Logarithmic": "Logarithmic",
+                            "Sine": "Sine",
+                            "Cosine": "Cosine",
+                            "Exponential": "Exponential",
+                            "Invert": "Invert"
+                        },
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
+                    },
+                    {
+                        "type": "fader",
+                        "top": 180,
+                        "left": 150,
+                        "id": "fader_4",
+                        "width": 220,
+                        "height": 60,
+                        "label": "Tilt Sensitivity",
+                        "color": "auto",
+                        "css": "",
+                        "horizontal": true,
+                        "alignRight": false,
+                        "pips": true,
+                        "input": true,
+                        "meter": false,
+                        "compact": true,
+                        "dashed": false,
+                        "snap": true,
+                        "spring": false,
+                        "doubleTap": false,
+                        "range": {
+                            "min": 0,
+                            "max": 255
+                        },
+                        "logScale": false,
+                        "unit": "",
+                        "origin": "auto",
+                        "value": 100,
+                        "precision": 0,
+                        "touchAddress": "",
+                        "meterAddress": "",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "address": "/Keyboard_Pitch_Bend_Gain",
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
+                    },
+                    {
+                        "type": "dropdown",
+                        "top": 10,
+                        "left": 770,
+                        "id": "dropdown_5",
+                        "width": 120,
+                        "height": "auto",
+                        "label": "Midi Channel",
+                        "color": "auto",
+                        "css": "",
+                        "value": 0,
+                        "precision": 0,
+                        "address": "/Keyboard_Global_USB_1_Channel",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "values": {
+                            "0": "0",
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "4": "4",
+                            "5": "5",
+                            "6": "6",
+                            "7": "7",
+                            "8": "8",
+                            "9": "9",
+                            "10": "10",
+                            "11": "11",
+                            "12": "12",
+                            "13": "13",
+                            "14": "14",
+                            "15": "15"
+                        },
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
+                    },
+                    {
+                        "type": "dropdown",
+                        "top": 110,
+                        "left": 630,
+                        "id": "dropdown_6",
+                        "width": 120,
+                        "height": "auto",
+                        "label": "Remote Channel",
+                        "color": "auto",
+                        "css": "",
+                        "value": 0,
+                        "precision": 0,
+                        "address": "/Keyboard_Global_LED_Remote_Channel",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "values": {
+                            "0": "0",
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "4": "4",
+                            "5": "5",
+                            "6": "6",
+                            "7": "7",
+                            "8": "8",
+                            "9": "9",
+                            "10": "10",
+                            "11": "11",
+                            "12": "12",
+                            "13": "13",
+                            "14": "14",
+                            "15": "15"
+                        },
+                        "linkId": "",
+                        "default": "",
+                        "bypass": false
+                    },
+                    {
+                        "type": "toggle",
+                        "top": 110,
+                        "left": 490,
+                        "id": "toggle_1",
+                        "linkId": "",
+                        "width": 120,
+                        "height": 60,
+                        "label": "Local Mode",
+                        "color": "auto",
+                        "css": "",
+                        "doubleTap": false,
+                        "led": true,
+                        "on": 1,
+                        "off": 0,
+                        "default": 1,
+                        "value": "",
+                        "precision": 0,
+                        "address": "/Keyboard_Global_LED_Mode",
+                        "preArgs": [],
+                        "target": [
+                            "k-board:osc"
+                        ],
+                        "bypass": false
                     }
                 ],
                 "tabs": [],
-                "scroll": true
+                "scroll": true,
+                "linkId": "",
+                "default": "",
+                "bypass": false
             }
         ],
         "color": "auto",
@@ -222,6 +409,9 @@
         "noSync": false,
         "id": "root",
         "scroll": true,
-        "label": false
+        "label": false,
+        "linkId": "",
+        "default": "",
+        "bypass": false
     }
 ]
